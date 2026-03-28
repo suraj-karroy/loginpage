@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore India - Tours & Travels</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Django Static CSS -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <i class="bi bi-airplane"></i> Explore India
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li><a class="nav-link" href="{% url 'destinations' %}">Destinations</a></li>
+                <li><a class="nav-link" href="{% url 'services' %}">Services</a></li>
+                <li><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                <li><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content text-center text-white">
+            <h1>Discover Incredible India</h1>
+            <p>Experience the rich culture, heritage, and natural beauty of India</p>
+
+            <a href="{% url 'destinations' %}" class="btn btn-primary btn-lg">Explore Destinations</a>
+            <a href="{% url 'book' %}" class="btn btn-outline-light btn-lg ms-2">Book Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Popular Destinations</h2>
+
+        <div class="row">
+
+            <!-- Taj Mahal -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://foodandtravel.com/imager/hours/219609/Ministry-of-Tourism-Govt-of-India-595161_Taj-Mahal-Uttar-Pradesh-Aerial_821631bb23140209ea99c8f810f75634.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Taj Mahal, Agra</h5>
+                        <p>Symbol of love and wonder.</p>
+                        <p>₹2,500/Day</p>
+                        <a href="{% url 'book' %}?destination=taj-mahal" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goa -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://images.travelandleisureasia.com/wp-content/uploads/sites/3/2024/04/15151106/palm-beach-1-1600x900.jpeg" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Goa Beaches</h5>
+                        <p>Enjoy sun, sand & sea.</p>
+                        <p>₹3,200/Day</p>
+                        <a href="{% url 'book' %}?destination=goa" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kerala -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://indiaholidaymall.com/images/blog/Destinations-for-a-Tranquil-Backwater-Tour-in-Kerala.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Kerala Backwaters</h5>
+                        <p>Peaceful backwater experience.</p>
+                        <p>₹4,500/Day</p>
+                        <a href="{% url 'book' %}?destination=kerala" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="bg-light py-5">
+    <div class="container text-center">
+        <h2 class="mb-5">Our Services</h2>
+
+        <div class="row">
+            <div class="col-md-3">
+                <i class="bi bi-airplane fs-1 text-primary"></i>
+                <h5>Flight Booking</h5>
+            </div>
+
+            <div class="col-md-3">
+                <i class="bi bi-building fs-1 text-primary"></i>
+                <h5>Hotel</h5>
+            </div>
+
+            <div class="col-md-3">
+                <i class="bi bi-car-front fs-1 text-primary"></i>
+                <h5>Transport</h5>
+            </div>
+
+            <div class="col-md-3">
+                <i class="bi bi-person-check fs-1 text-primary"></i>
+                <h5>Guides</h5>
+            </div>
+        </div>
+
+        <a href="{% url 'services' %}" class="btn btn-outline-primary mt-4">View All</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+ <footer class="bg-gradient-primary text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Explore India</h5>
+                    <p>Your trusted partner for unforgettable travel experiences across India.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light">Home</a></li>
+                         <li><a href="destinations.html" class="text-light">Destinations</a></li>
+                        <li><a href="services.html" class="text-light">Services</a></li>
+                        <li><a href="contact.html" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="bi bi-telephone"></i> +91 7707064766</p>
+                    <p><i class="bi bi-envelope"></i> info@exploreindia.com</p>
+                    <p><i class="bi bi-geo-alt"></i> Kalka Tower, Sakchi<br>Jamshedpur, Jharkhand 831001</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 Explore India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'script.js' %}"></script>
+
+</body>
+</html>

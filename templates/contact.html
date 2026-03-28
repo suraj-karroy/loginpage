@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Explore India</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Static CSS -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <i class="bi bi-airplane"></i> Explore India
+        </a>
+
+        <div class="ms-auto">
+            <a href="{% url 'home' %}" class="text-white me-3">Home</a>
+            <a href="{% url 'book' %}" class="text-white me-3">Book</a>
+            <a href="{% url 'login' %}" class="text-white">Login</a>
+        </div>
+    </div>
+</nav>
+
+<!-- CONTACT -->
+<section class="py-5" style="margin-block-start:80px;">
+    <div class="container">
+
+        <h2 class="text-center mb-4">Contact Us</h2>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="row">
+
+            <!-- CONTACT FORM -->
+            <div class="col-md-8">
+                <div class="card p-4">
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                            </div>
+                        </div>
+
+                        <input type="text" name="phone" class="form-control mb-3" placeholder="Phone">
+
+                        <select name="subject" class="form-control mb-3" required>
+                            <option value="">Select Subject</option>
+                            <option>Booking Inquiry</option>
+                            <option>Support</option>
+                            <option>Feedback</option>
+                            <option>Complaint</option>
+                            <option>Other</option>
+                        </select>
+
+                        <textarea name="message" class="form-control mb-3" rows="4" placeholder="Your Message" required></textarea>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <!-- CONTACT INFO -->
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5>Contact Info</h5>
+                    <p>📍 Jamshedpur, Jharkhand</p>
+                    <p>📞 +91 7707064766</p>
+                    <p>📧 info@exploreindia.com</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gradient-primary text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Explore India</h5>
+                    <p>Your trusted partner for unforgettable travel experiences across India.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light">Home</a></li>
+                         <li><a href="destinations.html" class="text-light">Destinations</a></li>
+                        <li><a href="services.html" class="text-light">Services</a></li>
+                        <li><a href="contact.html" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="bi bi-telephone"></i> +91 7707064766</p>
+                    <p><i class="bi bi-envelope"></i> info@exploreindia.com</p>
+                    <p><i class="bi bi-geo-alt"></i> Kalka Tower, Sakchi<br>Jamshedpur, Jharkhand 831001</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 Explore India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html>
